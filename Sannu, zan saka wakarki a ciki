@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Proyecto Interactivo</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background-color:#f2f2f2;
+    text-align:center;
+}
+
+.cookie-box{
+    margin-top:150px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    background:#222;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#444;
+}
+
+#pantalla{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    justify-content:center;
+    align-items:center;
+}
+
+#pantalla img{
+    width:80%;
+    max-width:500px;
+    animation: zoom 0.4s ease-in-out;
+}
+
+@keyframes zoom{
+    from {transform:scale(0.8);}
+    to {transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="cookie-box">
+    <h2>Este sitio usa cookies 🍪</h2>
+    <button onclick="activar()">Aceptar</button>
+</div>
+
+<div id="pantalla">
+    <img src="imagen.png">
+</div>
+
+<audio id="audio">
+    <source src="dragon-studio-scary-scream-401725.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function activar(){
+    document.querySelector(".cookie-box").style.display="none";
+    document.getElementById("pantalla").style.display="flex";
+
+    let sonido = document.getElementById("audio");
+    sonido.volume = 0.7; // volumen controlado
+    sonido.play();
+}
+</script>
+
+</body>
+</html>
